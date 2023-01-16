@@ -7,26 +7,15 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var showingAlert = false
+struct ContentView: View {    
+    var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
+    var correctAnswer = Int.random(in: 0...2)
     
     var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                Color.red
-                Color.blue
-            }
-            
-            Button("Show Alert") {
-                showingAlert = true
-            }
-            .alert("Important message", isPresented: $showingAlert) {
-                Button("OK", role: .cancel) { }
-            } message: {
-                Text("Please read this.")
-            }
+        VStack {
+            Text("Tap the flag of")
+            Text(countries[correctAnswer])
         }
-        .ignoresSafeArea()
     }
 }
 
